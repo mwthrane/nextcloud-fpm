@@ -6,13 +6,15 @@ volumes:
   proxy:
 
 
-adminer:
-  image: adminer
-  restart: always
-  ports:
-    - 8083:8083
-
 services:
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8083:8083
+
+
+
   db:
     image: mariadb:10.11.2
     restart: always
