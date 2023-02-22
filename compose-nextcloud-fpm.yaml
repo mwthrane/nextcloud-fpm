@@ -13,8 +13,6 @@ services:
     ports:
       - 8083:8080
 
-
-
   db:
     image: mariadb:10.11.2
     restart: always
