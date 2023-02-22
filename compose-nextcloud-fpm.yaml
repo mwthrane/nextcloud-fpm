@@ -5,6 +5,13 @@ volumes:
   db:
   proxy:
 
+
+adminer:
+  image: adminer
+  restart: always
+  ports:
+    - 8083:8083
+
 services:
   db:
     image: mariadb:10.11.2
@@ -16,19 +23,8 @@ services:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
       MARIADB_PASSWORD: ${MARIADB_PASSWORD}
       MARIADB_DATABASE: ${MARIADB_DATABASE}
-      MARIADB_DATABASE: "npm"
       MARIADB_USER: ${MARIADB_USER}
   
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8083:8083
-    depends_on:
-      - db
-
-
   app:
     image: nextcloud:fpm
     restart: always
