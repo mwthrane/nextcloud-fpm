@@ -11,7 +11,7 @@ services:
     image: adminer
     restart: always
     ports:
-      - 8083:8083
+      - 8083:8080
 
 
 
@@ -52,9 +52,10 @@ services:
     environment:
       DB_MYSQL_HOST: "db"
       DB_MYSQL_PORT: 3306
-      MARIADB_USER: ${MARIADB_USER}
-      MARIADB_DATABASE: ${MARIADB_DATABASE}
-      DB_MYSQL_NAME: "npm"
+      DB_MYSQL_USER: "root"
+      DB_MYSQL_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      DB_MYSQL_NAME: "nginx"
+
       DISABLE_IPV6: 'true'
     volumes:
       - ./data:/data
